@@ -1,0 +1,83 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+
+:root {
+    /* Tipografía */
+    --font-primary: 'Helvetica Neue', Arial, sans-serif;
+    --font-secondary: "Indie Flower", cursive;
+
+    /* Colores */
+    --color-primary: #fe90c1; /* Azul */
+    --color-secondary: #6C757D; /* Gris */
+    --color-third: #fffbec; /* Fondo claro */
+
+    /* Tamaños de texto */
+    --text-size-small: 0.875rem; /* 14px */
+    --text-size-base: 1rem; /* 16px */
+    --text-size-large: 1.25rem; /* 20px */
+    --text-size-title: 4.25rem; /* 20px */
+}
+
+
+
+body {
+    font-family: var(--font-primary);
+    font-size: var(--text-size-base);
+    background-color: var(--color-secondary);
+    color: var(--text-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-secondary);
+    margin-bottom: var(--spacing-base);
+}
+h1{
+    font-size: var(--text-size-title);
+    text-shadow:1px 1px 1px #333 ;
+}
+h2{
+    font-size: var(--text-size-large);
+    text-shadow:1px 1px 1px #333 ;
+}
+p {
+    margin-bottom: var(--spacing-base);
+}
+
+section{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border:1px solid gray;
+    overflow: hidden;
+}
+
+section img {
+    object-fit:cover;
+    max-height: 100%;
+}

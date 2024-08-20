@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    
+    <section data-duration="5" class="">
+        <img src="./img/159-Selene-previa-web.jpg" alt="">
+    </section>
+
+    <section data-duration="10" class="">
+        <img src="./img/50-Selene-previa-web.jpg" alt="">
+    </section>
+
+    <section data-duration="5" class="">
+        <img src="./img/93-Selene-previa-web.jpg" alt="">
+    </section>
+<script>
+        // Función para hacer scroll a una sección
+        function scrollToSection(section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Obtener todas las secciones
+        const sections = document.querySelectorAll('section');
+        let currentIndex = 0;
+
+        // Función para hacer scroll automáticamente
+        function autoScroll() {
+            const currentSection = sections[currentIndex];
+            const duration = currentSection.getAttribute('data-duration') * 1000;
+
+            scrollToSection(currentSection);
+
+            currentIndex = (currentIndex + 1) % sections.length;
+
+            setTimeout(autoScroll, duration);
+        }
+
+        // Iniciar el scroll automático al cargar la página
+        window.onload = autoScroll;
+</script>
+</body>
+</html>
