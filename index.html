@@ -14,18 +14,75 @@
 </head>
 <body>
     <div class="wrapper-section">
-        <div class="wrapper-text absolute slide-in-blurred-top top-10 z-index-3">
-            <h1 class="tracking-in-contract-bck animation color-third " >
-                Joaquina
-            </h1>
-        </div>
-        <section data-duration="5" class="">
-            <div class="wrapper-img">
-                <img src="./img/148-Joaquina-previa.png" alt="" class="absolute z-index-4 scale-down-center">
-                <img src="./img/148-Joaquina-previa.jpg" alt="" class="z-index-2">
+        <!--
+            <div class="wrapper-text absolute slide-in-blurred-top top-10 z-index-3">
+                <h1 class="tracking-in-contract-bck animation color-third " >
+                    Joaquina
+                </h1>
+            </div>
+        -->
+        <section class="section-comments" data-duration="20">
+            <div class="wrapper-comments">
+                <!--
+                    <div class="comment">
+                        <div class="wrapper-img-comment">
+                            <img src="./img/108-Joaquina-previa.jpg" alt="">
+                        </div>
+                        <div class="wrapper-text-comments">
+                            <span class="first">❝</span>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga libero impedit, neque cum deleniti quia optio illum nobis sequi! Velit amet nemo sunt nam. Adipisci tenetur facilis architecto dolorum corporis.</p>
+                            <span class="last">❞</span>
+                        </div>
+                        
+                        <h4>María Flores</h4>
+                    </div>
+                -->
+                <div class="comment">
+                    <div class="wrapper-img-comment">
+                        <img src="./img/108-Joaquina-previa.jpg" alt="">
+                    </div>
+                    <div class="wrapper-text-comments">
+                        <span class="first">❝</span>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga libero impedit, neque cum deleniti quia optio illum nobis sequi! Velit amet nemo sunt nam. Adipisci tenetur facilis architecto dolorum corporis.</p>
+                        <span class="last">❞</span>
+                    </div>
+                    
+                    <h2>María Flores</h2>
+                </div>
+
+                <!--
+                <div class="comment">
+                    
+                    <div class="wrapper-text-comments">
+                        <span class="first">❝</span>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga libero impedit, neque cum deleniti quia optio illum nobis sequi! Velit amet nemo sunt nam. Adipisci tenetur facilis architecto dolorum corporis.</p>
+                        <span class="last">❞</span>
+                    </div>
+                    
+                    <h2>María Flores</h2>
+                </div>
+                    <div class="comment">
+                        <div class="wrapper-img-comment">
+                        <img src="./img/108-Joaquina-previa.jpg" alt="">
+                    </div>
+                    <div class="wrapper-text-comments">
+                        <span>❝</span>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga libero impedit, neque cum deleniti quia optio illum nobis sequi! Velit amet nemo sunt nam. Adipisci tenetur facilis architecto dolorum corporis.</p>
+                        <span>❞</span>
+                    </div>
+                    
+                    <h4>María Flores</h4>
+                </div>
+                -->
             </div>
         </section>
         <!--
+            <section data-duration="5" class="">
+                <div class="wrapper-img">
+                    <img src="./img/148-Joaquina-previa.png" alt="" class="absolute z-index-4 scale-down-center">
+                    <img src="./img/148-Joaquina-previa.jpg" alt="" class="z-index-2">
+                </div>
+            </section>
             <section data-duration="5" class="">
                 <div class="wrapper-img">
                     <img src="./img/108-Joaquina-previa.png" alt="" class="absolute z-index-4">
@@ -43,9 +100,9 @@
                 </div>
             </section>
             -->
-
+            
     </div>
-<script>
+    <script>
         // Función para hacer scroll a una sección
         function scrollToSection(section) {
             section.scrollIntoView({ behavior: 'smooth' });
@@ -69,6 +126,27 @@
 
         // Iniciar el scroll automático al cargar la página
         window.onload = autoScroll;
+
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const comments = document.querySelectorAll('.comment');  // Selecciona todos los elementos con clase 'comment'
+            let currentIndex = 0;  // Inicializa el índice del primer comentario
+
+            function scrollToNextComment() {
+                comments[currentIndex].scrollIntoView({ behavior: 'smooth' });  // Desplaza hasta el comentario actual
+                currentIndex = (currentIndex + 1) % comments.length;  // Incrementa el índice y vuelve al inicio si es el último
+            }
+
+            // Hacer scroll cada 5 segundos
+            setInterval(scrollToNextComment, 5000);
+        });
+
+
+
+
+
 
 
 // Selecciona el elemento con la clase .wrapper-text

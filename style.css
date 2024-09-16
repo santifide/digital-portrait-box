@@ -7,6 +7,7 @@
 
 html, body {
     height: 100%;
+    width: 100vw;
 }
 
 input, button, textarea, select {
@@ -160,4 +161,78 @@ section .wrapper-img img {
 }
 .z-index-4{
     z-index: 4;
+}
+
+
+.wrapper-comments{
+    background-color: white;
+    width: fit-content;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    scroll-behavior: smooth;
+}
+.comment{
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5%;
+    flex-direction: column;
+}
+.wrapper-img-comment{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    box-shadow: 2px 1px 11px #80808047;
+    border-radius: 15px;
+}
+
+.wrapper-img-comment img{
+    object-fit:cover;
+    width: 100%;
+    height: 100%;
+}
+
+section.section-comments{
+    width: fit-content;
+}
+.wrapper-text-comments span {
+    font-size: calc(2*var(--text-size-title));
+    opacity: 0.05;
+    display: inline-block;
+    position: absolute;
+}
+.wrapper-text-comments span.first{
+    top: -85%;
+    left: -15%;
+}
+.wrapper-text-comments span.last{
+    bottom: -120%;
+    right: -15%;
+}
+.wrapper-text-comments {
+    width: auto;
+    height: auto;
+    position: relative;
+    width: 60%;
+}
+
+@media (orientation: portrait) {
+    
+}
+
+@media (orientation: landscape) {
+
+    .wrapper-img-comment img{
+        object-fit: contain;
+        height: 60%;
+    }
+    .wrapper-img-comment{
+        height: 50vh;
+    }
 }
