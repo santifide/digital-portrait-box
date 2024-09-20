@@ -11,3 +11,15 @@ function fidelio_add_rewrite_rules() {
 }
 
 add_action('init', 'fidelio_add_rewrite_rules');
+
+
+// functions.php
+
+function mi_tema_scripts() {
+    // Registrar y encolar CSS
+    wp_enqueue_style('mi-tema-estilos', get_template_directory_uri() . 'assets/css/animation.css', array(), '1.0', 'all');
+    
+    // Registrar y encolar JavaScript
+   // wp_enqueue_script('mi-tema-scripts', get_template_directory_uri() . '/js/archivo.js', array('jquery'), '1.0', true);
+}
+add_action('wp_enqueue_scripts', 'mi_tema_scripts');
