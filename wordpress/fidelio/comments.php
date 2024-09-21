@@ -5,7 +5,7 @@ if (post_password_required()) {
 }
 ?>
 
-<section class="section-comments" data-duration="10">
+<section class="section-comments" data-duration="20">
 
 
     <?php if (have_comments()): ?>

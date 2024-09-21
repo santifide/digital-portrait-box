@@ -48,7 +48,7 @@
             $video = get_cfc_field('portrait', 'video', false, $key);
 
             if (!empty($video)) { ?>
-                <section data-duration="5" class="z-index-4">
+                <section data-duration="7" class="z-index-4">
                     <div class="wrapper-img">
                         <video autoplay loop muted src="<?php the_cfc_field('portrait', 'video', false, $key); ?>"></video>
                     </div>
@@ -56,7 +56,7 @@
                 <?php
             } elseif (!empty($imgPng)) {
                 ?>
-                <section data-duration="5" class="">
+                <section data-duration="7" class="">
                     <div class="wrapper-img">
                         <img src="<?php the_cfc_field('portrait', 'imagen-png', false, $key); ?>" alt=""
                             class="absolute z-index-4">
@@ -67,7 +67,7 @@
                 <?php
             } else {
                 ?>
-                <section data-duration="5" class="z-index-4">
+                <section data-duration="7" class="z-index-4">
                     <div class="wrapper-img">
                         <img src="<?php the_cfc_field('portrait', 'imagen-background', false, $key); ?>" alt="">
                     </div>
@@ -87,43 +87,22 @@
 
         // Obtener todas las secciones
         const sections = document.querySelectorAll('section');
-        let currentIndex = 0;
+        let currentIndexAutoScroll = 0;
 
         // Función para hacer scroll automáticamente
         function autoScroll() {
-            const currentSection = sections[currentIndex];
+            const currentSection = sections[currentIndexAutoScroll];
             const duration = currentSection.getAttribute('data-duration') * 1000;
 
             scrollToSection(currentSection);
 
-            currentIndex = (currentIndex + 1) % sections.length;
+            currentIndexAutoScroll = (currentIndexAutoScroll + 1) % sections.length;
 
             setTimeout(autoScroll, duration);
         }
 
         // Iniciar el scroll automático al cargar la página
         window.onload = autoScroll;
-
-
-
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const comments = document.querySelectorAll('.comment');  // Selecciona todos los elementos con clase 'comment'
-            let currentIndex = 0;  // Inicializa el índice del primer comentario
-
-            function scrollToNextComment() {
-                comments[currentIndex].scrollIntoView({ behavior: 'smooth' });  // Desplaza hasta el comentario actual
-                currentIndex = (currentIndex + 1) % comments.length;  // Incrementa el índice y vuelve al inicio si es el último
-            }
-
-            // Hacer scroll cada 5 segundos
-            setInterval(scrollToNextComment, 5000);
-        });
-
-
-
-
-
 
 
         // Selecciona el elemento con la clase .wrapper-text

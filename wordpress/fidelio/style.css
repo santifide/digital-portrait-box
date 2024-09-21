@@ -50,6 +50,29 @@
 html, body {
     height: 100%;
     width: 100vw;
+    font-size: 14px;
+}
+@media screen and (orientation: portrait) and (min-width: 1000px) {
+
+    img#qr {
+        width: 220px!important;
+    }
+    button#show-comments {
+        display: none!important;
+    }
+    .wrapper-qr {
+        align-items: flex-end;
+    }
+    small{
+        font-size:35px!important;
+    }
+    div.comment p {
+        font-size: 50px!important;
+    }
+    
+    cite.fn {
+        font-size: 80px!important;
+    }
 }
 
 input, button, textarea, select {
@@ -90,7 +113,7 @@ ul, ol {
     /* Tamaños de texto */
     --text-size-small: 0.875rem; /* 14px */
     --text-size-base: 1.2rem; /* 16px */
-    --text-size-large: 1.4em; /* 20px */
+    --text-size-large: 1.4rem; /* 20px */
     --text-size-title: 2.25rem; /* 20px */
 }
 
@@ -270,7 +293,7 @@ img#btnClose {
 
 h3#reply-title {
     font-size: var(--text-size-large);
-    margin-bottom: 0.2em;
+    margin-bottom: 0.2rem;
 }
 
 form#commentform {
@@ -343,7 +366,7 @@ span.says {
 
 section.section-comments {
     background-color: #CBB498;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     flex-wrap: nowrap;
     color: #E9EDF3;
 }
