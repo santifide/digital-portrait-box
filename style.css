@@ -402,7 +402,7 @@ body {
 }
 
 .comment p {
-    font-size: var(--text-size-base);
+    font-size: var(--text-size-title);
 }
 
 img#qr {
