@@ -52,28 +52,6 @@ html, body {
     width: 100vw;
     font-size: 14px;
 }
-@media screen and (orientation: portrait) and (min-width: 1000px) {
-
-    img#qr {
-        width: 220px!important;
-    }
-    button#show-comments {
-        display: none!important;
-    }
-    .wrapper-qr {
-        align-items: flex-end;
-    }
-    small{
-        font-size:35px!important;
-    }
-    div.comment p {
-        font-size: 50px!important;
-    }
-    
-    cite.fn {
-        font-size: 80px!important;
-    }
-}
 
 input, button, textarea, select {
     font: inherit;
@@ -207,7 +185,7 @@ section .wrapper-img img {
     .wrapper-section{
         flex-direction: column;
     }
-    .wrapper-qr {
+    .wrapper-call-to-action-comments {
         flex-direction: column;
         gap: 10px;
     }
@@ -431,7 +409,7 @@ img#qr {
     width: 65px;
     bottom: 13%;
 }
-.wrapper-qr {
+.wrapper-call-to-action-comments {
     width: 100%;
     display: flex;
     height: fit-content;
@@ -481,4 +459,22 @@ button#next {
     font-family: var(--font-secundary);
     height: 100vh;
     top: 0;
+}
+.wrapper-qr {
+    position:absolute;
+    bottom:5%;
+    right:5%;
+    z-index:5;
+    background: #2e2e2ea6;
+    display: flex;
+    padding: 5px;
+    gap: 10px;
+    color: white;
+    font-size: 15px;
+    align-items: center;
+}
+@media (orientation: portrait) {
+    .wrapper-qr {
+        display: none;
+    }
 }

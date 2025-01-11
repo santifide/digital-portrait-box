@@ -5,7 +5,7 @@ if (post_password_required()) {
 }
 ?>
 
-<section class="section-comments" data-duration="20">
+<section class="section-comments" data-duration="30">
 
 
     <?php if (have_comments()): ?>
@@ -34,7 +34,7 @@ if (post_password_required()) {
 
     <?php endif; ?>
     <div class="wrapper-form" id="wrapper-form">
-        <img src="https://fidelio.com.ar/wp-content/uploads/2024/09/cerrar-e1726780378627.png" id="btnClose">
+    <img src="https://fidelio.com.ar/wp-content/uploads/2024/09/cerrar-e1726780378627.png" id="btnClose">
         <?php
         // Si los comentarios están cerrados y hay comentarios
         if (!comments_open() && get_comments_number()):
@@ -107,26 +107,10 @@ if (post_password_required()) {
             });
         });
     </script>
-    <div class="wrapper-qr">
-        <img src="<?php the_cfc_field('imagqr', 'imageqr', $post_id = false, $key = 0, $do_echo = true); ?>" id="qr">
+    <div class="wrapper-call-to-action-comments">
+        <!--<img src="<?php the_cfc_field('imagqr', 'imageqr', $post_id = false, $key = 0, $do_echo = true); ?>" id="qr">-->
         <button id="show-comments">Dejá tu saludo</button>
-        <small>Ingresá a 
 
-
-            <?php // Obtener la URL completa de la página actual
-            $current_url = home_url(add_query_arg(null, null));
-
-            // Parsear la URL para obtener el host y path sin el protocolo
-            $parsed_url = parse_url($current_url);
-
-            // Combinar el host con el path, eliminando la barra final
-            $url_without_protocol = rtrim($parsed_url['host'] . $parsed_url['path'], '/');
-
-            // Mostrar la URL
-            echo esc_html($url_without_protocol);
-            ; ?>
-
-        </small>
     </div>
 
 </section>

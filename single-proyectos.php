@@ -15,8 +15,27 @@
 </head>
 
 <body>
+<div class="wrapper-qr">
+    <img src="<?php the_cfc_field('imagqr', 'imageqr', $post_id = false, $key = 0, $do_echo = true); ?>" id="qr">
+    <h3>
+        Ingresá a <br>
+        <?php // Obtener la URL completa de la página actual
+        $current_url = home_url(add_query_arg(null, null));
 
+        // Parsear la URL para obtener el host y path sin el protocolo
+        $parsed_url = parse_url($current_url);
 
+        // Combinar el host con el path, eliminando la barra final
+        $url_without_protocol = rtrim($parsed_url['host'] . $parsed_url['path'], '/');
+
+        // Mostrar la URL
+        echo esc_html($url_without_protocol);
+        ; ?>
+        <br>
+        y dejá tu saludo!
+
+    </h3>
+</div>
 
 
 
