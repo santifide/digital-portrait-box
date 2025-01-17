@@ -55,43 +55,51 @@
 
         <?php endwhile; ?>
 
-        <?php foreach (get_cfc_meta('portrait') as $key => $value) {
+        <?php 
+            // Primero obtenemos todos los elementos en un array
+            $portraits = get_cfc_meta('portrait');
 
-            $clase = get_cfc_field('portrait', 'clase', false, $key);
-            $imgPng = get_cfc_field('portrait', 'imagen-png', false, $key);
-            $tituloPng = get_cfc_field('portrait', 'titulo', false, $key);
-            $imgJpg = get_cfc_field('portrait', 'imagen-background', false, $key);
-            $video = get_cfc_field('portrait', 'video', false, $key);
+            // Obtenemos las keys en un array y las mezclamos aleatoriamente
+            $keys = array_keys($portraits);
+            shuffle($keys);
 
-            if (!empty($video)) { ?>
-                <section data-duration="7" class="z-index-4">
-                    <div class="wrapper-img">
-                        <video autoplay loop muted src="<?php the_cfc_field('portrait', 'video', false, $key); ?>"></video>
-                    </div>
-                </section>
-                <?php
-            } elseif (!empty($imgPng)) {
-                ?>
-                <section data-duration="7" class="">
-                    <div class="wrapper-img">
-                        <img src="<?php the_cfc_field('portrait', 'imagen-png', false, $key); ?>" alt=""
-                            class="absolute z-index-4">
-                        <img src="<?php the_cfc_field('portrait', 'imagen-background', false, $key); ?>" alt=""
-                            class="z-index-2">
-                    </div>
-                </section>
-                <?php
-            } else {
-                ?>
-                <section data-duration="7" class="z-index-4">
-                    <div class="wrapper-img">
-                        <img src="<?php the_cfc_field('portrait', 'imagen-background', false, $key); ?>" alt="">
-                    </div>
-                </section>
-                <?php
+            // Iteramos sobre las keys mezcladas
+            foreach ($keys as $key) {
+                $clase = get_cfc_field('portrait', 'clase', false, $key);
+                $imgPng = get_cfc_field('portrait', 'imagen-png', false, $key);
+                $tituloPng = get_cfc_field('portrait', 'titulo', false, $key);
+                $imgJpg = get_cfc_field('portrait', 'imagen-background', false, $key);
+                $video = get_cfc_field('portrait', 'video', false, $key);
+
+                if (!empty($video)) { ?>
+                    <section data-duration="7" class="z-index-4">
+                        <div class="wrapper-img">
+                            <video autoplay loop muted src="<?php the_cfc_field('portrait', 'video', false, $key); ?>"></video>
+                        </div>
+                    </section>
+                    <?php
+                } elseif (!empty($imgPng)) {
+                    ?>
+                    <section data-duration="7" class="">
+                        <div class="wrapper-img">
+                            <img src="<?php the_cfc_field('portrait', 'imagen-png', false, $key); ?>" alt=""
+                                class="absolute z-index-4">
+                            <img src="<?php the_cfc_field('portrait', 'imagen-background', false, $key); ?>" alt=""
+                                class="z-index-2">
+                        </div>
+                    </section>
+                    <?php
+                } else {
+                    ?>
+                    <section data-duration="7" class="z-index-4">
+                        <div class="wrapper-img">
+                            <img src="<?php the_cfc_field('portrait', 'imagen-background', false, $key); ?>" alt="">
+                        </div>
+                    </section>
+                    <?php
+                }
             }
-
-        } ?>
+        ?>
 
 
     </div>
