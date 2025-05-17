@@ -15,7 +15,7 @@
 </head>
 
 <body>
-<div class="wrapper-qr">
+<div class="wrapper-qr" id="wrapper-qr">
     <img src="<?php the_cfc_field('imagqr', 'imageqr', $post_id = false, $key = 0, $do_echo = true); ?>" id="qr">
     <h3>
         Ingresá a <br>
@@ -153,6 +153,24 @@
         setTimeout(function () {
             location.reload();  // Recarga la página
         }, 300000);  // 300000 milisegundos = 5 minutos
+
+        // Oculta botón "dejar saludo" y muestra el QR si la URL tiene como parámetro ?showqr
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            
+            if (urlParams.has('showqr')) {
+            const wrapperQr = document.getElementById('wrapper-qr');
+            const showCommentsButton = document.getElementById('show-comments');
+            
+            if (wrapperQr) {
+                wrapperQr.style.display = 'flex';
+            }
+            
+            if (showCommentsButton) {
+                showCommentsButton.style.display = 'none';
+            }
+            }
+        });
     </script>
 
 </body>

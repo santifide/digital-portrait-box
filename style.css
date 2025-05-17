@@ -466,15 +466,10 @@ button#next {
     right:5%;
     z-index:5;
     background: #2e2e2ea6;
-    display: flex;
+    display: none;
     padding: 5px;
     gap: 10px;
     color: white;
     font-size: 15px;
     align-items: center;
-}
-@media (orientation: portrait) {
-    .wrapper-qr {
-        display: none;
-    }
 }
