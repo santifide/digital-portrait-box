@@ -66,7 +66,6 @@
             // Iteramos sobre las keys mezcladas
             foreach ($keys as $key) {
                 $clase = get_cfc_field('portrait', 'clase', false, $key);
-                $imgPng = get_cfc_field('portrait', 'imagen-png', false, $key);
                 $tituloPng = get_cfc_field('portrait', 'titulo', false, $key);
                 $imgJpg = get_cfc_field('portrait', 'imagen-background', false, $key);
                 $video = get_cfc_field('portrait', 'video', false, $key);
@@ -78,22 +77,14 @@
                         </div>
                     </section>
                     <?php
-                } elseif (!empty($imgPng)) {
-                    ?>
-                    <section data-duration="7" class="">
-                        <div class="wrapper-img">
-                            <img src="<?php the_cfc_field('portrait', 'imagen-png', false, $key); ?>" alt=""
-                                class="absolute z-index-4">
-                            <img src="<?php the_cfc_field('portrait', 'imagen-background', false, $key); ?>" alt=""
-                                class="z-index-2">
-                        </div>
-                    </section>
-                    <?php
                 } else {
                     ?>
-                    <section data-duration="7" class="z-index-4">
-                        <div class="wrapper-img">
-                            <img src="<?php the_cfc_field('portrait', 'imagen-background', false, $key); ?>" alt="">
+                    <section data-duration="7000" class="z-index-4">
+                        <div class="wrapper-img" style="background-image: url('<?php the_cfc_field('portrait', 'imagen-background', false, $key); ?>'); position: relative;
+    background-color: rgb(0 0 0 / 100%);
+    background-blend-mode: color;"> 
+                            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('<?php the_cfc_field('portrait', 'imagen-background', false, $key); ?>'); background-size: cover; background-position: center; background-repeat: no-repeat; opacity: 0.2; filter: blur(8px); z-index: -1;"></div>
+                            <img src="<?php the_cfc_field('portrait', 'imagen-background', false, $key); ?>" alt="" style="position: relative; z-index: 1;">
                         </div>
                     </section>
                     <?php
@@ -169,6 +160,37 @@
             if (showCommentsButton) {
                 showCommentsButton.style.display = 'none';
             }
+            }
+        });
+
+        // --- Modificar estilos según parámetros w, h, o ---
+        document.addEventListener("DOMContentLoaded", function() {
+            const search = window.location.search;
+
+            // Función para extraer el valor de un parámetro tipo &w40
+            function getParamValue(param) {
+                const match = search.match(new RegExp(`[?&]${param}(\\d+)`));
+                return match ? match[1] : null;
+            }
+
+            // Obtener valores
+            const w = getParamValue('w');
+            const h = getParamValue('h');
+            const o = getParamValue('o');
+
+            // Modificar width y height de las imágenes
+            if (w || h) {
+                document.querySelectorAll('section .wrapper-img img').forEach(img => {
+                    if (w) img.style.width = w + '%';
+                    if (h) img.style.height = h + '%';
+                });
+            }
+
+            // Modificar opacidad del blur
+            if (o) {
+                const style = document.createElement('style');
+                style.innerHTML = `.wrapper-img::before { opacity: ${parseInt(o, 10) / 100} !important; }`;
+                document.head.appendChild(style);
             }
         });
     </script>

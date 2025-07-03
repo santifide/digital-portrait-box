@@ -155,7 +155,7 @@ section {
 video {
   width: 100vw;
   height: 100vh;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .wrapper-section {
@@ -170,9 +170,9 @@ video {
 }
 
 section .wrapper-img img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+  object-fit: contain;
+  width: 90%;
+  height: 90%;
 }
 
 @media (orientation: portrait) {
@@ -189,7 +189,7 @@ section .wrapper-img img {
 @media (orientation: landscape) {
   section,
   .wrapper-comments {
-    width: 33.3333%;
+    width: 100%;
     height: 100vh;
   }
   .wrapper-section {
@@ -205,6 +205,35 @@ section .wrapper-img img {
   width: 100%;
   height: 100%;
   position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilo para el pseudo-elemento que maneja la transparencia y blur */
+.wrapper-img::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 120%;
+  height: 140%;
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.4; /* 40% de transparencia (0.2 = 20% de opacidad) */
+  filter: blur(31px); /* Aplicar blur */
+  z-index: 1; /* Poner detrás del contenido */
+}
+
+/* Asegurar que el contenido esté por encima del fondo con blur */
+.wrapper-img > * {
+  position: relative;
+  z-index: 1;
 }
 
 .wrapper-text {
