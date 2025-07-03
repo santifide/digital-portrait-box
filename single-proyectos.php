@@ -79,7 +79,7 @@
                     <?php
                 } else {
                     ?>
-                    <section data-duration="7000" class="z-index-4">
+                    <section data-duration="7" class="z-index-4">
                         <div class="wrapper-img" style="background-image: url('<?php the_cfc_field('portrait', 'imagen-background', false, $key); ?>'); position: relative;
     background-color: rgb(0 0 0 / 100%);
     background-blend-mode: color;"> 
@@ -163,7 +163,7 @@
             }
         });
 
-        // --- Modificar estilos según parámetros w, h, o ---
+        // --- Modificar estilos según parámetros w, h, o, s ---
         document.addEventListener("DOMContentLoaded", function() {
             const search = window.location.search;
 
@@ -177,6 +177,7 @@
             const w = getParamValue('w');
             const h = getParamValue('h');
             const o = getParamValue('o');
+            const s = getParamValue('s');
 
             // Modificar width y height de las imágenes
             if (w || h) {
@@ -191,6 +192,13 @@
                 const style = document.createElement('style');
                 style.innerHTML = `.wrapper-img::before { opacity: ${parseInt(o, 10) / 100} !important; }`;
                 document.head.appendChild(style);
+            }
+
+            // Modificar overflow de .wrapper-section
+            if (s !== null) {
+                document.querySelectorAll('.wrapper-section').forEach(el => {
+                    el.style.overflow = 'hidden';
+                });
             }
         });
     </script>
